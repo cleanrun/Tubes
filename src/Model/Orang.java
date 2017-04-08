@@ -1,4 +1,4 @@
-package Class;
+package Model;
 
 abstract public class Orang {
     private String nama;
@@ -24,6 +24,5 @@ abstract public class Orang {
     public void setUmur(int umur) {
         this.umur = umur;
     }
-    
     
 }

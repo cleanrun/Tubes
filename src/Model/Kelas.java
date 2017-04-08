@@ -1,4 +1,4 @@
-package Class;
+package Model;
 
 public class Kelas {
     private String namaKelas;

@@ -9,6 +9,6 @@ package Controller;
  *
  * @author cleanrun
  */
-public class ControllerMenuUser {
+public class ControlMenuUser {
     
 }

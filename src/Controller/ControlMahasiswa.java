@@ -1,34 +1,47 @@
 package Controller;
 
-import Class.Mahasiswa;
 import GUI.FormMahasiswa;
-import Model.Model;
+import Model.App;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
-public class ControlMahasiswa {
-    private FormMahasiswa gui;
-    private Model model;
+public class ControlMahasiswa implements ActionListener{
+    private App model;
+    private FormMahasiswa view;
     
-    public ControlMahasiswa(FormMahasiswa gui, Model model){
-        this.gui = gui;
+    public ControlMahasiswa(App model){
         this.model = model;
-        this.gui.btnInputPerformed(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                //Mahasiswa(String nama, int umur, String nim, String fakultas, int semester, int sks)
-                String getNama  = gui.getInpNamaMahasiswa();
-                int getUmur     = gui.getJSpinnerUmur();
-                String getNim   = gui.getInpNim();
-                String getFak   = gui.getInpFakultas();
-                int getSemester = gui.getInpSemester();
-                int getSks      = gui.getJSpinnerSks();
-                
-                model.setMahasiswa(getNama, getUmur, getNim, getFak, getSemester, getSks);
+        view = new FormMahasiswa();
+        view.setVisible(true);
+        view.setActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        Object click = ae.getSource();
+        
+        if(click.equals(view.getBtnInput())){
+            try{
+                    model.addMahasiswa(view.getInpNamaMahasiswa(),
+                        view.getJSpinnerUmur(), 
+                        view.getInpNim(), 
+                        view.getInpFakultas(), 
+                        view.getInpSemester(), 
+                        view.getJSpinnerSks());
+                    
+                    JOptionPane.showMessageDialog(view, "Input success!");
+                    view.reset(); // Masih gafungsi
+            }catch(Exception e){
+                    JOptionPane.showMessageDialog(view, "Error input",
+                      "", JOptionPane.ERROR_MESSAGE);
             }
-            
-        });
+        }
+        else if(click.equals(view.getBtnBack())){
+            new ControlMenuAdmin(model);
+            view.dispose();
+        }
     }
     
-   
+    
 }

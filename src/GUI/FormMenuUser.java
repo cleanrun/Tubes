@@ -16,6 +16,7 @@ public class FormMenuUser extends javax.swing.JFrame {
      */
     public FormMenuUser() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

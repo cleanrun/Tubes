@@ -1,4 +1,4 @@
-package Class;
+package Driver;
 
 /*
     Keterangan program ==
@@ -6,9 +6,10 @@ package Class;
     2. masih belom selesai (dikit lagi kayaknya)
 */
 
+import Model.Menu;
 import java.util.Scanner;
 
-public class Driver {
+public class DriverConsole {
     
     public static void main(String[] args) {
         boolean exit = false;

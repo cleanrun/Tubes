@@ -1,4 +1,4 @@
-package Class;
+package Model;
 
 /*
     NOTE UTAMA ==
@@ -34,7 +34,7 @@ public class Menu {
     
     public void pilMenuAdmin(){
         System.out.println("Menu Admin");
-        System.out.println("1.  Create mahasiswa");
+        System.out.println("1.  Create Mahasiswa");
         System.out.println("2.  Create Dosen");
         System.out.println("3.  Create Matakuliah");
         System.out.println("4.  Create Kelas");

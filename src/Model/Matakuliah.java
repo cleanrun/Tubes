@@ -1,4 +1,4 @@
-package Class;
+package Model;
 
 public class Matakuliah {
     private String namaMk;
@@ -41,7 +41,7 @@ public class Matakuliah {
             return "Ya";
         }
         else{
-            return "tidak";
+            return "tidak"; 
         }
     }
 

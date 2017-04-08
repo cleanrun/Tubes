@@ -1,4 +1,4 @@
-package Class;
+package Model;
 
 public class Dosen extends Orang{
     private String nip;

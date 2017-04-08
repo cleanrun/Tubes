@@ -5,7 +5,9 @@
  */
 package GUI;
 
+import Controller.ControlMahasiswa;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 public class FormMahasiswa extends javax.swing.JFrame {
 
@@ -14,6 +16,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
      */
     public FormMahasiswa() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -38,6 +41,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
         BtnInput = new javax.swing.JButton();
         jSpinnerUmur = new javax.swing.JSpinner();
         jSpinnerSks = new javax.swing.JSpinner();
+        BtnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -90,6 +94,13 @@ public class FormMahasiswa extends javax.swing.JFrame {
 
         jSpinnerSks.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
 
+        BtnBack.setText("Back");
+        BtnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,10 +128,12 @@ public class FormMahasiswa extends javax.swing.JFrame {
                             .addComponent(jSpinnerUmur, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSpinnerSks, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnBack)
+                .addGap(18, 18, 18)
                 .addComponent(BtnInput)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(143, 143, 143))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,9 +162,11 @@ public class FormMahasiswa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelSks)
                     .addComponent(jSpinnerSks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(BtnInput)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnInput)
+                    .addComponent(BtnBack))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
@@ -177,41 +192,10 @@ public class FormMahasiswa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnInputActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void BtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBackActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormMahasiswa().setVisible(true);
-            }
-        });
-    }
 
     public String getInpNamaMahasiswa(){
         return inpNamaMahasiswa.getText();
@@ -237,11 +221,30 @@ public class FormMahasiswa extends javax.swing.JFrame {
         return (int) jSpinnerSks.getValue();
     }
     
-    public void btnInputPerformed(ActionListener a){
+    public void setActionListener(ActionListener a){
         BtnInput.addActionListener(a);
+        BtnBack.addActionListener(a);
+    }
+    
+    public JButton getBtnInput(){
+        return BtnInput;
+    }
+    
+    public JButton getBtnBack(){
+        return BtnBack;
+    }
+    // gak jalan, masih harus dibenerin
+    public void reset(){
+        inpFakultas = null;
+        inpNamaMahasiswa = null;
+        inpNim = null;
+        inpSemester = null;
+        jSpinnerSks = null;
+        jSpinnerUmur = null;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBack;
     private javax.swing.JButton BtnInput;
     private javax.swing.JTextField inpFakultas;
     private javax.swing.JTextField inpNamaMahasiswa;
@@ -256,4 +259,6 @@ public class FormMahasiswa extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerSks;
     private javax.swing.JSpinner jSpinnerUmur;
     // End of variables declaration//GEN-END:variables
+
+
 }
