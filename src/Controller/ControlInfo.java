@@ -1,5 +1,6 @@
 package Controller;
 
+import Database.Database;
 import GUI.FormInfo;
 import Model.App;
 import Model.Dosen;
@@ -16,10 +17,12 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
     private App model;
     private FormInfo view;
     private boolean b;
+    private Database d;
     
-    public ControlInfo(App model, boolean b){
+    public ControlInfo(App model, boolean b, Database d){
         this.model = model;
         this.b = b;
+        this.d = d;
         view = new FormInfo();
         view.setActionListener(this);
         view.setVisible(true);
@@ -101,7 +104,9 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
             if(view.getComboBoxList() == "Mahasiswa"){
                 try{
                     int i = view.getSelectedList();
+                    d.deleteMahasiswa(model.getListMhs().get(i).getNim());
                     model.getListMhs().remove(i);
+                    
                     view.clearTextArea();
                     view.setList(getList());
                 } catch(Exception e){
@@ -112,7 +117,9 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
             else if(view.getComboBoxList() == "Dosen"){
                 try{
                     int i = view.getSelectedList();
+                    d.deleteDosen(model.getListDosen().get(i).getNip());
                     model.getListDosen().remove(i);
+                   
                     view.clearTextArea();
                     view.setList(getList());
                 } catch(Exception e){
@@ -123,7 +130,9 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
             else if(view.getComboBoxList() == "Matakuliah"){
                 try{
                     int i = view.getSelectedList();
+                    d.deleteMatakuliah(model.getListMk().get(i).getNamaMk());
                     model.getListMk().remove(i);
+                    
                     view.clearTextArea();
                     view.setList(getList());
                 } catch(Exception e){
@@ -134,7 +143,9 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
             else if(view.getComboBoxList() == "Kelas"){
                 try{
                     int i = view.getSelectedList();
+                    d.deleteKelas(model.getListKelas().get(i).getNamaKelas());
                     model.getListKelas().remove(i);
+            
                     view.clearTextArea();
                     view.setList(getList());
                 } catch(Exception e){
@@ -178,11 +189,11 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
     
     private void back(){
         if(b == true){
-            new ControlMenuAdmin(model);
+            new ControlMenuAdmin(model, d);
             view.dispose();
         }
         else{
-            new ControlMenuUser(model);
+            new ControlMenuUser(model, d);
             view.dispose();
         }
     }

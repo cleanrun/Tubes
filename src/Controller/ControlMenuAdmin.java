@@ -1,5 +1,6 @@
 package Controller;
 
+import Database.Database;
 import GUI.FormMenuAdmin;
 import Model.App;
 import java.awt.event.ActionEvent;
@@ -9,9 +10,11 @@ import javax.swing.JOptionPane;
 public class ControlMenuAdmin implements ActionListener{
     private App model;
     private FormMenuAdmin view;
+    private Database d;
     
-    public ControlMenuAdmin(App model){
+    public ControlMenuAdmin(App model, Database d){
         this.model = model;
+        this.d = d;
         view = new FormMenuAdmin();
         view.setVisible(true);
         view.setActionListener(this);
@@ -36,19 +39,19 @@ public class ControlMenuAdmin implements ActionListener{
                         options1[0]);
             
                 if(n == 0){ //create Mahasiswa
-                    new ControlMahasiswa(model, true);
+                    new ControlMahasiswa(model, true, d);
                     view.dispose();
                 }
                 else if(n == 1){ //create Dosen
-                    new ControlDosen(model);
+                    new ControlDosen(model, d);
                     view.dispose();
                 }
                 else if(n == 2){ //create Matakuliah
-                    new ControlMatakuliah(model);
+                    new ControlMatakuliah(model, d);
                     view.dispose();
                 }
                 else if(n == 3){ //create Kelas
-                    new ControlKelas(model);
+                    new ControlKelas(model, d);
                     view.dispose();
                 }
             } catch(Exception e){
@@ -72,15 +75,15 @@ public class ControlMenuAdmin implements ActionListener{
                         options2[0]);
 
                 if(a == 0){ //set Dosen
-                    new ControlSetDosen(model);
+                    new ControlSetDosen(model, d);
                     view.dispose();
                 }
                 else if(a == 1){ //Add Mahasiswa
-                    new ControlAddMahasiswa(model, true);
+                    new ControlAddMahasiswa(model, true, d);
                     view.dispose();
                 }
                 else if(a == 2){ //Set Matakuliah
-                    new ControlSetMatakuliah(model);
+                    new ControlSetMatakuliah(model, d);
                     view.dispose();
                 }
             } catch(Exception e){
@@ -89,7 +92,7 @@ public class ControlMenuAdmin implements ActionListener{
             }
         }
         else if (click.equals(view.getButtonInfo())){
-            new ControlInfo(model, true);
+            new ControlInfo(model, true, d);
             view.dispose();
             
             
@@ -98,7 +101,7 @@ public class ControlMenuAdmin implements ActionListener{
             */
         }
         else{
-            new ControlLogin(model);
+            new ControlLogin(model, d);
             view.dispose();
         }
     }

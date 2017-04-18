@@ -1,7 +1,9 @@
 package Controller;
 
+import Database.Database;
 import GUI.FormDosen;
 import Model.App;
+import Model.Dosen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -9,9 +11,11 @@ import javax.swing.JOptionPane;
 public class ControlDosen implements ActionListener{
     private App model;
     private FormDosen view;
+    private Database d;
     
-    public ControlDosen(App model){
+    public ControlDosen(App model, Database d){
         this.model = model;
+        this.d = d;
         view = new FormDosen();
         view.setVisible(true);
         view.setActionListener(this);
@@ -21,12 +25,14 @@ public class ControlDosen implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object click = ae.getSource();
         
-        //masih salah, selalu input success
         if (click.equals(view.getBtnInput())){
             try{
-                model.addDosen(view.getFieldNama(), 
+                Dosen ds = new Dosen(view.getFieldNama(), 
                         view.getJSpinnerUmur(), 
                         view.getFieldNip());
+                
+                d.saveDosen(ds);
+                model.addDosen(ds);
                 
                 JOptionPane.showMessageDialog(view, "Input success!");
             } catch(Exception e){
@@ -35,7 +41,7 @@ public class ControlDosen implements ActionListener{
             }
         }
         else{
-            new ControlMenuAdmin(model);
+            new ControlMenuAdmin(model, d);
             view.dispose();
         }
     }

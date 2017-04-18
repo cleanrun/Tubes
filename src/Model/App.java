@@ -21,7 +21,32 @@ public class App {
         listMk = new ArrayList();
     }
     
-    //method add
+    public void load(ArrayList<Mahasiswa> listMhs, ArrayList<Dosen> listDosen, ArrayList<Kelas> listKelas, ArrayList<Matakuliah> listMk){
+        this.listMhs = listMhs;
+        this.listDosen = listDosen;
+        this.listMk = listMk;
+        this.listKelas = listKelas;
+    }
+    
+    //method add secara objek
+    
+    public void addMahasiswa(Mahasiswa m){
+        listMhs.add(m);
+    }
+    
+    public void addDosen(Dosen d){
+        listDosen.add(d);
+    }
+    
+    public void addKelas(Kelas k){
+        listKelas.add(k);
+    }
+    
+    public void addMatakuliah(Matakuliah mk){
+        listMk.add(mk);
+    }
+    
+    //method add manual
     
     public void addMahasiswa(String nama, int umur, String nim, String fakultas, int semester, int sks){
         listMhs.add(new Mahasiswa(nama, umur, nim, fakultas, semester, sks));

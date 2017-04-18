@@ -1,5 +1,6 @@
 package Controller;
 
+import Database.Database;
 import GUI.FormLoginAdmin;
 import Model.App;
 import java.awt.event.ActionEvent;
@@ -9,9 +10,11 @@ import javax.swing.JOptionPane;
 public class ControlLoginAdmin implements ActionListener{
     private App model;
     private FormLoginAdmin view;
+    private Database d;
     
-    public ControlLoginAdmin(App model){
+    public ControlLoginAdmin(App model, Database d){
         this.model = model;
+        this.d = d;
         view = new FormLoginAdmin();
         view.setActionListener(this);
         view.setVisible(true);
@@ -23,7 +26,7 @@ public class ControlLoginAdmin implements ActionListener{
         
         if(click.equals(view.getButtonLogin())){
             if(view.getUsername().equals("administrator") && view.getPassword().equals("password") == true){
-                new ControlMenuAdmin(model);
+                new ControlMenuAdmin(model, d);
                 view.dispose();
             }
             else{
@@ -31,7 +34,7 @@ public class ControlLoginAdmin implements ActionListener{
             }
         }
         else if(click.equals(view.getButtonBack())){
-            new ControlLogin(model);
+            new ControlLogin(model, d);
             view.dispose();
         }
     }

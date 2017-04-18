@@ -26,18 +26,20 @@ public class TestingField {
 
         //d.deleteMahasiswa("1301154278");
         
-        Dosen dosen = new Dosen("ahmad", 40, "1301154278");
-        //d.saveDosen(dosen);
+        Dosen dosen1 = new Dosen("ahmad", 40, "1301154278");
+        Dosen dosen2 = new Dosen("mahmud", 35, "11111111");
+        //d.saveDosen(dosen2);
         //d.deleteDosen("1301154278");
         
-        Matakuliah mk = new Matakuliah("Matakuliah 1", 3, 'y');
-        Matakuliah mk2 = new Matakuliah("Matakuliah 2", 3, 't');
+        Matakuliah mk1 = new Matakuliah("Matakuliah 1", 3, 'y');
+        Matakuliah mk2 = new Matakuliah("Matakuliah 2", 4, 't');
         //d.saveMatakuliah(mk);
         //d.saveMatakuliah(mk2);
         //d.deleteMatakuliah("Matakuliah 1");
         
-        Kelas k = new Kelas("Kelas 1", mk, dosen, 40);
-        //d.saveKelas(k);
+        Kelas k1 = new Kelas("Kelas 1", mk1, dosen1, 40);
+        Kelas k2 = new Kelas("Kelas 2", mk2, dosen2, 30);
+        //d.saveKelas(k2);
         //d.deleteKelas("Kelas 1");
         
         //d.updateSetDosen("Mahmud", "Kelas 1");
@@ -46,6 +48,7 @@ public class TestingField {
         
         //System.out.println(d.loadMahasiswa());
         //System.out.println(d.loadDosen());
-        System.out.println(d.loadMatakuliah());
+        //System.out.println(d.loadMatakuliah());
+        //System.out.println(d.loadKelas());
     }
 }

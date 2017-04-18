@@ -1,5 +1,6 @@
 package Controller;
 
+import Database.Database;
 import GUI.FormMatakuliah;
 import Model.App;
 import Model.Matakuliah;
@@ -10,9 +11,11 @@ import javax.swing.JOptionPane;
 public class ControlMatakuliah implements ActionListener{
     private App model;
     private FormMatakuliah view;
+    private Database d;
     
-    public ControlMatakuliah(App model){
+    public ControlMatakuliah(App model, Database d){
         this.model = model;
+        this.d = d;
         view = new FormMatakuliah();
         view.setVisible(true);
         view.setActionListener(this);
@@ -29,6 +32,13 @@ public class ControlMatakuliah implements ActionListener{
                         view.getSpinnerSks(), 
                         view.getCheckBoxWajib());
                 
+                Matakuliah mk = new Matakuliah(view.getFieldNama(), 
+                        view.getSpinnerSks(), 
+                        view.getCheckBoxWajib());
+                
+                d.saveMatakuliah(mk);
+                model.addMatakuliah(mk);
+                
                 /*
                 if(view.getCheckBoxWajib() == 'y'){
                     JOptionPane.showMessageDialog(view, "Wajib");
@@ -41,7 +51,7 @@ public class ControlMatakuliah implements ActionListener{
                 JOptionPane.showMessageDialog(view, "Input Success!");               
             }
             else if (click.equals(view.getBtnBack())){
-                new ControlMenuAdmin(model);
+                new ControlMenuAdmin(model, d);
                 view.dispose();
             }
         } catch (Exception e){

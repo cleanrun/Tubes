@@ -1,5 +1,6 @@
 package Controller;
 
+import Database.Database;
 import GUI.FormSetMatakuliah;
 import Model.App;
 import java.awt.event.ActionEvent;
@@ -9,9 +10,11 @@ import javax.swing.JOptionPane;
 public class ControlSetMatakuliah implements ActionListener{
     private App model;
     private FormSetMatakuliah view;
+    private Database d;
     
-    public ControlSetMatakuliah(App model){
+    public ControlSetMatakuliah(App model, Database d){
         this.model = model;
+        this.d = d;
         view = new FormSetMatakuliah(model.getListMk(), model.getListKelas());
         view.setVisible(true);
         view.setActionListener(this);
@@ -24,6 +27,9 @@ public class ControlSetMatakuliah implements ActionListener{
         if (click.equals(view.getButtonSet())){
             try{
                 view.getComboBoxKelas().setMatkul(view.getComboBoxMatakuliah());
+                d.updateSetMatakuliah(view.getComboBoxMatakuliah().getNamaMk(), 
+                        view.getComboBoxKelas().getNamaKelas());
+                
                 JOptionPane.showMessageDialog(view, "Input success!");
             } catch(Exception e){
                 JOptionPane.showMessageDialog(view, "Error input",
@@ -31,7 +37,7 @@ public class ControlSetMatakuliah implements ActionListener{
             }
         }
         else if (click.equals(view.getButtonBack())){
-            new ControlMenuAdmin(model);
+            new ControlMenuAdmin(model ,d);
             view.dispose();
         }
     }

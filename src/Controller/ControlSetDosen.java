@@ -1,5 +1,6 @@
 package Controller;
 
+import Database.Database;
 import GUI.FormSetDosen;
 import Model.App;
 import Model.Dosen;
@@ -12,9 +13,11 @@ import javax.swing.JOptionPane;
 public class ControlSetDosen implements ActionListener{
     private App model;
     private FormSetDosen view;
+    private Database d;
     
-    public ControlSetDosen(App model){
+    public ControlSetDosen(App model, Database d){
         this.model = model;
+        this.d = d;
         view = new FormSetDosen(model.getListDosen(), model.getListKelas());
         view.setVisible(true);
         view.setActionListener(this);
@@ -26,7 +29,10 @@ public class ControlSetDosen implements ActionListener{
         
         if(click.equals(view.getButtonSet())){
             try{
-                view.getComboBoxKelas().setDosen(view.getComboBoxDosen());               
+                view.getComboBoxKelas().setDosen(view.getComboBoxDosen()); 
+                d.updateSetDosen(view.getComboBoxDosen().getNama(), 
+                        view.getComboBoxKelas().getNamaKelas());
+                
                 JOptionPane.showMessageDialog(view, "Input success!");
             } catch(Exception e){
                 JOptionPane.showMessageDialog(view, "Error input",
@@ -34,7 +40,7 @@ public class ControlSetDosen implements ActionListener{
             }
         }
         else if(click.equals(view.getButtonBack())){
-            new ControlMenuAdmin(model);
+            new ControlMenuAdmin(model ,d);
             view.dispose();
         }
     }

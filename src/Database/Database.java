@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 /*
     Notes :
-    - Yang belom --> method loadkelas
     - Method yang udah masih dalam tahap coba, belom bisa diimplementasikan ke controller
     - on progress
 */
@@ -312,5 +311,42 @@ public class Database {
     }
     
     
-    //public ArrayList<Kelas> loadKelas()
+    public ArrayList<Kelas> loadKelas(){
+        try{
+            ArrayList<Kelas> listkelas = new ArrayList();
+            
+            Statement s = connection.createStatement();
+            String querykelas = "SELECT * FROM kelas";
+            ResultSet rskelas = s.executeQuery(querykelas);
+            
+            while(rskelas.next()){
+                Statement sdosen = connection.createStatement();
+                String querydosen = "SELECT * FROM dosen WHERE nama='"+rskelas.getString("dosen")+"'";
+                ResultSet rsdosen = sdosen.executeQuery(querydosen);
+
+                while(rsdosen.next()){
+                    Dosen d = new Dosen(rsdosen.getString("nama"), 
+                            rsdosen.getInt("umur"), rsdosen.getString("nip"));
+                    
+                    Statement smk = connection.createStatement();
+                    String querymk = "SELECT * FROM matakuliah WHERE namamk='"+ rskelas.getString("matakuliah") +"'";
+                    ResultSet rsmk = smk.executeQuery(querymk);
+                
+                    while(rsmk.next()){
+                        Matakuliah mk = new Matakuliah(rsmk.getString("namamk"), 
+                                rsmk.getInt("jmlhsks"), rsmk.getString("wajib").charAt(0));
+                        
+                        Kelas k = new Kelas(rskelas.getString("namakelas"), mk, d, rskelas.getInt("jumlahmhs"));
+                        listkelas.add(k);
+                    }
+                }
+            }
+            
+            return listkelas;
+        } catch(SQLException e){
+            System.out.println("Error occured");
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
