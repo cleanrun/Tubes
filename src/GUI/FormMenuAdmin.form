@@ -65,12 +65,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAdd">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add"/>
+        <Property name="text" type="java.lang.String" value="Add/Set"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonExit">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Exit"/>
+        <Property name="text" type="java.lang.String" value="Log Out"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExitActionPerformed"/>

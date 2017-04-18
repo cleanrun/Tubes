@@ -28,6 +28,7 @@ public class FormLogin extends javax.swing.JFrame {
         jButtonUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
         jLabel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N

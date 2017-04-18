@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documents/Projects/Java/Tubes1/src/GUI/FormLogin.java</file>
-            <file>file:/D:/Documents/Projects/Java/Tubes1/src/GUI/FormMenuUser.java</file>
-            <file>file:/D:/Documents/Projects/Java/Tubes1/src/Controller/ControllerMenuAdmin.java</file>
-            <file>file:/D:/Documents/Projects/Java/Tubes1/src/GUI/FormMenuAdmin.java</file>
-            <file>file:/D:/Documents/Projects/Java/Tubes1/src/Controller/ControllerMenuUser.java</file>
-            <file>file:/D:/Documents/Projects/Java/Tubes1/src/Controller/ControlLogin.java</file>
+            <file>file:/D:/Documents/Projects/Java/TubesMarchell/src/Model/Matakuliah.java</file>
+            <file>file:/D:/Documents/Projects/Java/TubesMarchell/src/Model/Dosen.java</file>
+            <file>file:/D:/Documents/Projects/Java/TubesMarchell/src/Database/Database.java</file>
+            <file>file:/D:/Documents/Projects/Java/TubesMarchell/src/Driver/DriverGUI.java</file>
+            <file>file:/D:/Documents/Projects/Java/TubesMarchell/src/Database/TestingField.java</file>
         </group>
     </open-files>
 </project-private>

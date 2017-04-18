@@ -38,7 +38,7 @@ public class Matakuliah {
     
     public String getWajib(){
         if(this.wajib == true){
-            return "Ya";
+            return "ya";
         }
         else{
             return "tidak"; 

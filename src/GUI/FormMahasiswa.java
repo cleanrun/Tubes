@@ -92,7 +92,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
 
         jSpinnerUmur.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        jSpinnerSks.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
+        jSpinnerSks.setModel(new javax.swing.SpinnerNumberModel(18, 18, 24, 1));
 
         BtnBack.setText("Back");
         BtnBack.addActionListener(new java.awt.event.ActionListener() {

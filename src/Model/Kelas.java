@@ -64,7 +64,7 @@ public class Kelas {
     public String toString(){
         String namakelas = "Kelas " + namaKelas;
         String dosenpengajar = "Dosen = " + dosen.getNama();
-        String kapasitas = "Kapasitas kelas = " + jumlahMhs;
+        String kapasitas = "Kapasitas tampung mahasiswa = " + jumlahMhs;
         String sks = "SKS = " + this.sks;
         
         return namakelas + '\n' + dosenpengajar + '\n' + kapasitas + '\n' + sks;

@@ -19,6 +19,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
      */
     public FormMenuAdmin() {
         initComponents();
+        setTitle("Welcome, Admin!");
         setLocationRelativeTo(null);
     }
 
@@ -46,9 +47,9 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButtonAdd.setText("Add");
+        jButtonAdd.setText("Add/Set");
 
-        jButtonExit.setText("Exit");
+        jButtonExit.setText("Log Out");
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExitActionPerformed(evt);

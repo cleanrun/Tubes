@@ -21,14 +21,12 @@ public class ControlLogin implements ActionListener{
     public void actionPerformed(ActionEvent ae) {        
         Object click = ae.getSource();
         if(click.equals(view.getButtonAdmin())){
-            //JOptionPane.showMessageDialog(view, "Admin menu on progress!",
-            //      "Under Maintenance", JOptionPane.WARNING_MESSAGE);
-            new ControlMenuAdmin(model);
+            new ControlLoginAdmin(model);
             view.dispose();
         }
-        else if(click.equals(view.getButtonUser())){            
-            JOptionPane.showMessageDialog(view, "User menu on progress!",
-                    "Under Maintenance", JOptionPane.WARNING_MESSAGE);
+        else if(click.equals(view.getButtonUser())){
+            new ControlMenuUser(model);
+            view.dispose();
         }
     }
 }
