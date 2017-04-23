@@ -1,6 +1,7 @@
 package Database;
 
 import Model.*;
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -349,4 +350,87 @@ public class Database {
         }
         return null;
     }
+    
+    //-----------------------------------------------------------------------------------------------------------
+    
+    // Account methods
+    
+        
+    public void saveAccount(Account a) throws MySQLIntegrityConstraintViolationException, SQLException{
+            Statement s = connection.createStatement();
+            String query = "INSERT INTO account (username, password) "
+                    + "VALUES ('"+a.getUsername()+"', '"+a.getPassword()+"')";
+            s.execute(query);
+            connection.commit();
+            s.close();
+    }
+    
+    public Account getAccount(String username){
+        try{
+            Statement s = connection.createStatement();
+            String query = "SELECT * FROM account WHERE username='"+ username +"'";
+            ResultSet rs = s.executeQuery(query);
+            while(rs.next()){
+                Account a = new Account(rs.getString("username"), rs.getString("Password"));
+                return a;
+            }
+            
+        } catch(SQLException e){
+            System.out.println("Error occured");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    
+    public void deleteAccount(String username){
+        try{
+            Statement s = connection.createStatement();
+            String query = "DELETE FROM account WHERE username='"+username+"'";
+            
+            s.execute(query);
+            connection.commit();
+            s.close();
+        } catch(SQLException e){
+            System.out.println("Error occured");
+            e.printStackTrace();
+        }
+    }
+
+    public void updateAccountPassword(String username, String password){
+        try{
+            Statement s = connection.createStatement();
+            String query = "UPDATE account SET password='"+password+"' WHERE username='"+username+"'";
+            
+            s.executeUpdate(query);
+            connection.commit();
+            s.close();
+        } catch(SQLException e){
+            System.out.println("Error occured");
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Account> loadAccount(){
+        try{
+            ArrayList<Account> listaccount = new ArrayList();
+            
+            Statement s = connection.createStatement();
+            String query = "SELECT * FROM account";
+            ResultSet rs = s.executeQuery(query);
+            
+            while(rs.next()){
+                Account a = new Account(rs.getString("username"), rs.getString("password"));
+                listaccount.add(a);
+            }
+            
+            return listaccount;
+        } catch(SQLException e){
+            System.out.println("Error occured");
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+    
 }

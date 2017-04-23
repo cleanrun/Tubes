@@ -101,7 +101,7 @@ public class ControlMenuAdmin implements ActionListener{
             */
         }
         else{
-            new ControlLogin(model, d);
+            new ControlLoginAdmin(model, d);
             view.dispose();
         }
     }

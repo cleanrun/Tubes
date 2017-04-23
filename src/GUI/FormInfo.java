@@ -52,7 +52,6 @@ public class FormInfo extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea = new javax.swing.JTextArea();
-        jButtonGetInfo = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,13 +115,6 @@ public class FormInfo extends javax.swing.JFrame {
         jTextArea.setRows(5);
         jScrollPane1.setViewportView(jTextArea);
 
-        jButtonGetInfo.setText("Get Info");
-        jButtonGetInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGetInfoActionPerformed(evt);
-            }
-        });
-
         jButtonDelete.setText("Delete");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -135,9 +127,7 @@ public class FormInfo extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonDelete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonGetInfo)))
+                        .addComponent(jButtonDelete)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -146,10 +136,8 @@ public class FormInfo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonGetInfo)
-                    .addComponent(jButtonDelete))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButtonDelete)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,15 +163,10 @@ public class FormInfo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonGetInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGetInfoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGetInfoActionPerformed
     
     public void setActionListener(ActionListener a){
         jButtonBack.addActionListener(a);
         jButtonGet.addActionListener(a);
-        jButtonGetInfo.addActionListener(a);
         jButtonDelete.addActionListener(a);
     }
     
@@ -201,10 +184,6 @@ public class FormInfo extends javax.swing.JFrame {
     
     public JButton getButtonGet(){
         return jButtonGet;
-    }
-    
-    public JButton getButtonGetInfo(){
-        return jButtonGetInfo;
     }
     
     public JButton getButtonDelete(){
@@ -236,7 +215,6 @@ public class FormInfo extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonGet;
-    private javax.swing.JButton jButtonGetInfo;
     private javax.swing.JComboBox<String> jComboBoxList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList;

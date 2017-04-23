@@ -14,7 +14,7 @@ import Model.Matakuliah;
  *
  * @author cleanrun
  */
-public class TestingField {
+public class TestingField { //class ini cuma buat test doang
     public static void main(String[] args) {
         Database d = new Database();
         //d.connect();
@@ -50,5 +50,7 @@ public class TestingField {
         //System.out.println(d.loadDosen());
         //System.out.println(d.loadMatakuliah());
         //System.out.println(d.loadKelas());
+        
+        //System.out.println(d.getAccount("cleanrun"));
     }
 }

@@ -41,7 +41,7 @@ public class ControlMenuUser implements ActionListener{
             
         }
         else if(click.equals(view.getButtonExit())){
-            new ControlLogin(model, d);
+            new ControlLoginAdmin(model, d);
             view.dispose();
         }
     }

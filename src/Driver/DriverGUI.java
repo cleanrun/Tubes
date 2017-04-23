@@ -1,6 +1,6 @@
 package Driver;
 
-import Controller.ControlLogin;
+import Controller.ControlLoginAdmin;
 import Database.Database;
 import Model.App;
 
@@ -11,7 +11,7 @@ public class DriverGUI {
         App aplikasi = new App();
         aplikasi.load(d.loadMahasiswa(), d.loadDosen(), d.loadKelas(), d.loadMatakuliah());
         
-        ControlLogin c = new ControlLogin(aplikasi ,d);
+        ControlLoginAdmin c = new ControlLoginAdmin(aplikasi ,d);
     }
 }
 

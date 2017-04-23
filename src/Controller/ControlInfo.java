@@ -25,6 +25,7 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
         this.d = d;
         view = new FormInfo();
         view.setActionListener(this);
+        view.addMouseAdapter(this);
         view.setVisible(true);
     }
     
@@ -71,34 +72,6 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
         }
         else if(click.equals(view.getButtonBack())){
             back();
-        }
-        else if(click.equals(view.getButtonGetInfo())){
-            try{
-                //int i = view.getSelectedList();
-                if(view.getComboBoxList() == "Mahasiswa"){
-                    int i = view.getSelectedList();
-                    Mahasiswa m = model.getListMhs().get(i);
-                    view.setTextArea(m.toString());
-                }
-                else if(view.getComboBoxList() == "Dosen"){
-                    int i = view.getSelectedList();
-                    Dosen d = model.getListDosen().get(i);
-                    view.setTextArea(d.toString());
-                }
-                else if(view.getComboBoxList() == "Matakuliah"){
-                    int i = view.getSelectedList();
-                    Matakuliah mk = model.getListMk().get(i);
-                    view.setTextArea(mk.toString());
-                }
-                else if(view.getComboBoxList() == "Kelas"){
-                    int i = view.getSelectedList();
-                    Kelas k = model.getListKelas().get(i);
-                    view.setTextArea(k.toString());
-                }
-            } catch(Exception e){
-                JOptionPane.showMessageDialog(view, "Null selection!",
-                      "", JOptionPane.WARNING_MESSAGE);
-            }
         }
         else if(click.equals(view.getButtonDelete())){
             if(view.getComboBoxList() == "Mahasiswa"){
