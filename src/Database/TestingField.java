@@ -5,6 +5,7 @@
  */
 package Database;
 
+import Model.Account;
 import Model.Dosen;
 import Model.Kelas;
 import Model.Mahasiswa;
@@ -52,5 +53,18 @@ public class TestingField { //class ini cuma buat test doang
         //System.out.println(d.loadKelas());
         
         //System.out.println(d.getAccount("cleanrun"));
+        
+        Account a = new Account("fazaliqa", "marchell");
+        
+        /*
+        try{
+            d.saveAccount(a);
+        } catch(Exception e){
+            System.out.println("salah");
+        }
+        */
+        
+        //d.updateAccountPassword("fazaliqa", "akusayangmarchell");
+        //d.deleteAccount("fazaliqa");
     }
 }

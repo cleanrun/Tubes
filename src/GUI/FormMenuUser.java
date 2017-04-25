@@ -17,10 +17,10 @@ public class FormMenuUser extends javax.swing.JFrame {
     /**
      * Creates new form FormMenuUser
      */
-    public FormMenuUser() {
+    public FormMenuUser(String test) {
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Welcome user!");
+        setTitle("Welcome " + test + "!");
     }
 
     /**
@@ -33,16 +33,23 @@ public class FormMenuUser extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jButtonNew = new javax.swing.JButton();
         jButtonAdd = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jButtonExit = new javax.swing.JButton();
+        jButtonChangePassword = new javax.swing.JButton();
+        jButtonDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
         jLabel1.setText("Menu User");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Register"));
 
         jButtonNew.setText("New Mahasiswa");
 
@@ -50,46 +57,93 @@ public class FormMenuUser extends javax.swing.JFrame {
 
         jButtonInfo.setText("Info");
 
-        jButtonExit.setText("Exit");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonNew, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonAdd, jButtonInfo, jButtonNew});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jButtonNew)
+                .addGap(25, 25, 25)
+                .addComponent(jButtonAdd)
+                .addGap(29, 29, 29)
+                .addComponent(jButtonInfo)
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonAdd, jButtonInfo, jButtonNew});
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Account management"));
+
+        jButtonExit.setText("Log Out");
+
+        jButtonChangePassword.setText("Change Password");
+
+        jButtonDelete.setText("Delete Account");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonChangePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jButtonChangePassword)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonDelete)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonExit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1))
-                    .addComponent(jButtonNew, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jButtonExit)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(179, 179, 179)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonAdd, jButtonInfo, jButtonNew});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonNew)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonAdd)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonInfo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jButtonExit)
-                .addGap(50, 50, 50))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonAdd, jButtonInfo, jButtonNew});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,6 +153,8 @@ public class FormMenuUser extends javax.swing.JFrame {
         jButtonInfo.addActionListener(a);
         jButtonNew.addActionListener(a);
         jButtonExit.addActionListener(a);
+        jButtonDelete.addActionListener(a);
+        jButtonChangePassword.addActionListener(a);
     }
     
     public JButton getButtonNew(){
@@ -116,12 +172,24 @@ public class FormMenuUser extends javax.swing.JFrame {
     public JButton getButtonExit(){
         return jButtonExit;
     }
+    
+    public JButton getButtonDelete(){
+        return jButtonDelete;
+    }
+    
+    public JButton getButtonChangePassword(){
+        return jButtonChangePassword;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonChangePassword;
+    private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInfo;
     private javax.swing.JButton jButtonNew;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

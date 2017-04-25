@@ -18,6 +18,16 @@ public class ControlMenuAdmin implements ActionListener{
         view = new FormMenuAdmin();
         view.setVisible(true);
         view.setActionListener(this);
+        view.setTextArea(TextArea());
+    }
+    
+    private String TextArea(){
+        String mhs = "Mahasiswa avaliable = " + model.getListMhs().size();
+        String dosen = "Dosen avaliable = " + model.getListDosen().size();
+        String mk = "Matakuliah avaliable = " + model.getListMk().size();
+        String kelas = "Dosen avaliable = " + model.getListKelas().size();
+        
+        return mhs + '\n' + dosen + '\n' + mk + '\n' + kelas;
     }
 
     @Override
@@ -39,7 +49,7 @@ public class ControlMenuAdmin implements ActionListener{
                         options1[0]);
             
                 if(n == 0){ //create Mahasiswa
-                    new ControlMahasiswa(model, true, d);
+                    new ControlMahasiswa(model, true, d, "administrator");
                     view.dispose();
                 }
                 else if(n == 1){ //create Dosen
@@ -79,7 +89,7 @@ public class ControlMenuAdmin implements ActionListener{
                     view.dispose();
                 }
                 else if(a == 1){ //Add Mahasiswa
-                    new ControlAddMahasiswa(model, true, d);
+                    new ControlAddMahasiswa(model, true, d, "administrator");
                     view.dispose();
                 }
                 else if(a == 2){ //Set Matakuliah
@@ -92,7 +102,7 @@ public class ControlMenuAdmin implements ActionListener{
             }
         }
         else if (click.equals(view.getButtonInfo())){
-            new ControlInfo(model, true, d);
+            new ControlInfo(model, true, d, "administrator");
             view.dispose();
             
             
@@ -100,8 +110,17 @@ public class ControlMenuAdmin implements ActionListener{
                       "", JOptionPane.WARNING_MESSAGE);
             */
         }
+        else if (click.equals(view.getButtonChangePw())){
+            new ControlChangePassword(model, d, true, "administrator");
+            view.dispose();
+            
+            /*
+            JOptionPane.showMessageDialog(view, "Under Maintenance",
+                      "", JOptionPane.WARNING_MESSAGE);
+            */
+        }
         else{
-            new ControlLoginAdmin(model, d);
+            new ControlLogin(model, d);
             view.dispose();
         }
     }

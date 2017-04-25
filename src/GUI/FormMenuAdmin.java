@@ -32,13 +32,37 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonCreate = new javax.swing.JButton();
-        jButtonAdd = new javax.swing.JButton();
-        jButtonExit = new javax.swing.JButton();
-        jButtonInfo = new javax.swing.JButton();
         jLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jButtonAdd = new javax.swing.JButton();
+        jButtonInfo = new javax.swing.JButton();
+        jButtonCreate = new javax.swing.JButton();
+        jButtonExit = new javax.swing.JButton();
+        jButtonChangePw = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        jLabel.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        jLabel.setText("Welcome, Admin!");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Get to work!"));
+
+        jButtonAdd.setText("Add/Set");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddActionPerformed(evt);
+            }
+        });
+
+        jButtonInfo.setText("Info");
+        jButtonInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInfoActionPerformed(evt);
+            }
+        });
 
         jButtonCreate.setText("Create");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -47,8 +71,6 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButtonAdd.setText("Add/Set");
-
         jButtonExit.setText("Log Out");
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,39 +78,75 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButtonInfo.setText("Info");
+        jButtonChangePw.setText("Change Password");
 
-        jLabel.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
-        jLabel.setText("Menu Admin");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonChangePw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jButtonCreate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonInfo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonAdd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(jButtonChangePw)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonExit)
+                .addGap(21, 21, 21))
+        );
+
+        jTextArea.setEditable(false);
+        jTextArea.setColumns(20);
+        jTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        jTextArea.setRows(5);
+        jTextArea.setWrapStyleWord(true);
+        jTextArea.setAutoscrolls(false);
+        jScrollPane1.setViewportView(jTextArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel)
-                .addGap(27, 27, 27)
-                .addComponent(jButtonCreate)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonInfo)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonAdd)
-                .addGap(48, 48, 48)
-                .addComponent(jButtonExit)
-                .addGap(46, 46, 46))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -101,12 +159,21 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonExitActionPerformed
+
+    private void jButtonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonInfoActionPerformed
+
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddActionPerformed
     
     public void setActionListener(ActionListener a){
         jButtonAdd.addActionListener(a);
         jButtonCreate.addActionListener(a);
         jButtonInfo.addActionListener(a);
         jButtonExit.addActionListener(a);
+        jButtonChangePw.addActionListener(a);
     }
     
     public JButton getButtonAdd(){
@@ -124,13 +191,25 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     public JButton getButtonExit(){
         return jButtonExit;
     }
+    
+    public JButton getButtonChangePw(){
+        return jButtonChangePw;
+    }
+    
+    public void setTextArea(String s){
+        jTextArea.setText(s);
+    }
         
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonChangePw;
     private javax.swing.JButton jButtonCreate;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInfo;
     private javax.swing.JLabel jLabel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea;
     // End of variables declaration//GEN-END:variables
 }

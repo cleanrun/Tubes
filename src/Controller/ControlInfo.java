@@ -18,8 +18,9 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
     private FormInfo view;
     private boolean b;
     private Database d;
+    private String username;
     
-    public ControlInfo(App model, boolean b, Database d){
+    public ControlInfo(App model, boolean b, Database d, String username){
         this.model = model;
         this.b = b;
         this.d = d;
@@ -166,7 +167,7 @@ public class ControlInfo extends MouseAdapter implements ActionListener{
             view.dispose();
         }
         else{
-            new ControlMenuUser(model, d);
+            new ControlMenuUser(model, d, username);
             view.dispose();
         }
     }

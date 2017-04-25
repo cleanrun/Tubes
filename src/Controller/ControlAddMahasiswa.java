@@ -12,11 +12,13 @@ public class ControlAddMahasiswa implements ActionListener{
     private FormAddMahasiswa view;
     private boolean b;
     private Database d;
+    private String username;
     
-    public ControlAddMahasiswa(App model, boolean b, Database d){
+    public ControlAddMahasiswa(App model, boolean b, Database d, String username){
         this.b = b;
         this.model = model;
         this.d = d;
+        this.username = username;
         view = new FormAddMahasiswa(model.getListMhs(), model.getListKelas());
         view.setVisible(true);
         view.setActionListener(this);
@@ -50,7 +52,7 @@ public class ControlAddMahasiswa implements ActionListener{
             view.dispose();
         }
         else{
-            new ControlMenuUser(model, d);
+            new ControlMenuUser(model, d, username);
             view.dispose();
         }
     }

@@ -11,11 +11,13 @@ public class ControlMenuUser implements ActionListener{
     private App model;
     private FormMenuUser view;
     private Database d;
+    private String username;
 
-    public ControlMenuUser(App model, Database d){
+    public ControlMenuUser(App model, Database d, String username){
         this.model = model;
         this.d = d;
-        view = new FormMenuUser();
+        this.username = username;
+        view = new FormMenuUser(username);
         view.setVisible(true);
         view.setActionListener(this);
     }
@@ -25,23 +27,29 @@ public class ControlMenuUser implements ActionListener{
         Object click = ae.getSource();
         
         if(click.equals(view.getButtonNew())){
-            new ControlMahasiswa(model, false, d);
+            new ControlMahasiswa(model, false, d, username);
             view.dispose();
         }
         else if(click.equals(view.getButtonAdd())){
-            new ControlAddMahasiswa(model, false, d);
+            new ControlAddMahasiswa(model, false, d, username);
             view.dispose();
         }
         else if(click.equals(view.getButtonInfo())){
+            new ControlInfo(model, false, d, username);
+            view.dispose();            
+        }
+        else if(click.equals(view.getButtonChangePassword())){
+            new ControlChangePassword(model, d, false, username);
+            view.dispose();            
+        }
+        else if(click.equals(view.getButtonDelete())){
+            new ControlDeleteAccount(model, d, username);
+            view.dispose();           
+            
             //JOptionPane.showMessageDialog(view, "Under maintanence", "", JOptionPane.WARNING_MESSAGE);
-            
-            
-            new ControlInfo(model, false, d);
-            view.dispose();
-            
         }
         else if(click.equals(view.getButtonExit())){
-            new ControlLoginAdmin(model, d);
+            new ControlLogin(model, d);
             view.dispose();
         }
     }

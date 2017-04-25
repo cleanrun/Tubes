@@ -27,33 +27,44 @@ public class ControlSignUp implements ActionListener{
         Object click = ae.getSource();
         
         if(click.equals(view.getButtonSignUp())){
+            if(view.getFieldUsername().isEmpty()){
+                JOptionPane.showMessageDialog(view, "Username can't be empty.");
+            }
+            else{
             if(view.getCheckBox().isSelected()){
-                if(view.getPassword().equals(view.getPasswordRetype())){
-                    try{
-                        Account a = new Account(view.getFieldUsername(), view.getPassword());
-                        try{
-                            d.saveAccount(a);
-                            
-                            JOptionPane.showMessageDialog(view, "Account successfully created!");
-                            new ControlLoginAdmin(model, d);
-                            view.dispose();
-                        } catch(Exception e){
-                            JOptionPane.showMessageDialog(view, "Username already taken.");
-                        }
-                    } catch(Exception e){
-                        JOptionPane.showMessageDialog(view, "Error Occured.");
-                    }
+                if(view.getPassword().isEmpty()){
+                    JOptionPane.showMessageDialog(view, "Password can't be empty.");
                 }
                 else{
-                    JOptionPane.showMessageDialog(view, "Password do not match");
+                    if(view.getPassword().equals(view.getPasswordRetype())){
+                        try{
+                            Account a = new Account(view.getFieldUsername(), view.getPassword());
+                            try{
+                                d.saveAccount(a);
+
+                                JOptionPane.showMessageDialog(view, "Account successfully created!");
+                                new ControlLogin(model, d);
+                                view.dispose();
+                            } catch(Exception e){
+                                JOptionPane.showMessageDialog(view, "Username already taken.");
+                            }
+                        } catch(Exception e){
+                            JOptionPane.showMessageDialog(view, "Error Occured.");
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(view, "Password do not match");
+                    }
                 }
             }
             else{
                 JOptionPane.showMessageDialog(view, "You must read and agree the Terms and Conditions");
             }
+          }
+            
         }
         else if(click.equals(view.getButtonBack())){
-            new ControlLoginAdmin(model, d);
+            new ControlLogin(model, d);
             view.dispose();
         }
     }
